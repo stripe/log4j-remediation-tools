@@ -10,10 +10,17 @@ Specifically, this confirms vulnerability to data exfiltration _and_ remote code
 
 ## Usage
 
+(For now you need to compile using Java 11, but you can run it on any version 8 or 11+.)
 ```sh
 mvn package
 ```
 
+Java 8:
+```sh
+java -cp <java-home>/lib/tools.jar:target/is-it-vulnerable-1.0-SNAPSHOT.jar com.stripe.log4j.isitvuln.IsItVuln
+```
+
+Java 11:
 ```sh
 java -jar target/is-it-vulnerable-1.0-SNAPSHOT.jar
 ```
