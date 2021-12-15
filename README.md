@@ -9,6 +9,8 @@
 
 ## Usage
 
+Both of these tools scan all running JVM processes on a machine, and produce a CSV report about which processes may be / are vulnerable.
+
 Check out the corresponding READMEs for [`find-vulnerabilities/`](./find-vulnerabilities) and [`confirm-vulnerabilities/`](./confirm-vulnerabilities) for usage details.
 
 ### Which tool should I use?

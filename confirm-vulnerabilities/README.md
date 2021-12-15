@@ -6,6 +6,8 @@ Authoritatively scans all running JVM's for the December 2021 Log4j exploit [CVE
 It does this by injecting actual `Logger.error("${jndi:ldap://...})` calls into the running application and checking for
 LDAP network requests made by Log4j.
 
+Specifically, this confirms vulnerability to data exfiltration _and_ remote code execution (it does not differentiate between those two).
+
 ## Usage
 
 ```sh
