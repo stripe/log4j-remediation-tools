@@ -41,3 +41,10 @@ myhost.stripe.com,lite,5312d3ca2e10757078770b735c83088820627f3cdcb34f3df8d99d16d
 | myhost.stripe.com | lite | 5312d3ca2e10757078770b735c83088820627f3cdcb34f3df8d99d16dfe00903 | 1234 | /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java |              |       |       |       |       | true        | 2.1                  | yes        | 2.1                             |
 | myhost.stripe.com | lite | 5312d3ca2e10757078770b735c83088820627f3cdcb34f3df8d99d16dfe00903 | 5678 | /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java |              |       |       |       |       | true        | 2.9.0                | yes        | 2.9.0                           |
 | myhost.stripe.com | lite | 5312d3ca2e10757078770b735c83088820627f3cdcb34f3df8d99d16dfe00903 | 9999 | /usr/lib/jvm/java-11-openjdk-amd64/bin/java    |              |       |       |       |       | true        | 2.16.0               | no         | 2.16.0                          |
+
+## How it works
+
+This tools scans all open processes and attempts to find running JVMs. For
+running JVMs, it then looks through all open file descriptors to identify
+loaded JAR files and heuristically determine whether log4j is present, and if
+so, what version is running.
