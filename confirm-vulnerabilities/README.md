@@ -20,6 +20,8 @@ java -jar target/is-it-vulnerable-1.0-SNAPSHOT.jar
 
 This will attempt to inject code into all JVM's running on the machine, and report status in CSV format.
 
+### Example output
+
 Sample output to `stdout`:
 
 ```csv
