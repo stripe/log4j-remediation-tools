@@ -1,4 +1,4 @@
-module git.corp.stripe.com/adunham/log4j-finder
+module github.com/stripe/log4j-remediation-tools/find-vulnerabilities
 
 go 1.16
 
