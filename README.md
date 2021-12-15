@@ -29,6 +29,10 @@ Here are a few tradeoffs to help you determine which tool is right for your use 
 - May crash the running JVM due to JVM bugs
 - May briefly slow down the running JVM while waiting for JVM pause
 
+## Contributing
+
+This project welcomes feedback and contributions; however, we might be slow to respond to or triage your requests. We appreciate your patience.
+
 ## License
 
 This project uses the [MIT license](LICENSE.md).
