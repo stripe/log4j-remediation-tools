@@ -46,7 +46,6 @@
                                         <Main-Class>com.stripe.log4j.isitvuln.IsItVuln</Main-Class>
                                         <Build-Number>123</Build-Number>
                                         <Agent-Class>com.stripe.log4j.isitvuln.IsItVulnAgent</Agent-Class>
-<!--                                        <Agent-Class>com.stripe.irrelaxedanxious.isitvuln.IsItVulnAgent</Agent-Class>-->
                                     </manifestEntries>
                                 </transformer>
                             </transformers>
@@ -56,4 +55,98 @@
             </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>jdk8_profile</id>
+            <activation>
+                <jdk>1.8</jdk>
+                <file>
+                    <exists>${java.home}/lib/tools.jar</exists>
+                </file>
+            </activation>
+            <properties>
+                <toolsjar>${java.home}/lib/tools.jar</toolsjar>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-install-plugin</artifactId>
+                        <version>2.5.1</version>
+                        <configuration>
+                            <groupId>local_jdk</groupId>
+                            <artifactId>local_jdk</artifactId>
+                            <version>local</version>
+                            <packaging>jar</packaging>
+                            <file>${toolsjar}</file>
+                            <generatePom>true</generatePom>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>jdk_tools</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>install-file</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+            <dependencies>
+                <dependency>
+                    <groupId>local_jdk</groupId>
+                    <artifactId>local_jdk</artifactId>
+                    <version>local</version>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>jdk8_jre_profile</id>
+            <activation>
+                <jdk>1.8</jdk>
+                <file>
+                    <exists>${java.home}/../lib/tools.jar</exists>
+                </file>
+            </activation>
+            <properties>
+                <toolsjar>${java.home}/../lib/tools.jar</toolsjar>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-install-plugin</artifactId>
+                        <version>2.5.1</version>
+                        <configuration>
+                            <groupId>local_jdk</groupId>
+                            <artifactId>local_jdk</artifactId>
+                            <version>local</version>
+                            <packaging>jar</packaging>
+                            <file>${toolsjar}</file>
+                            <generatePom>true</generatePom>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>jdk_tools</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>install-file</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+            <dependencies>
+                <dependency>
+                    <groupId>local_jdk</groupId>
+                    <artifactId>local_jdk</artifactId>
+                    <version>local</version>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 </project>
